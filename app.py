@@ -1,5 +1,4 @@
-```python
- import os
+import os
 import sys
 import time
 import subprocess
@@ -22,7 +21,7 @@ def hello():
         </script>
     </head>
     <body>
-        <h1>Wooooooo!!!!</h1>
+        <h1>Yooooooo!!!!</h1>
         <p>This page auto-refreshes every 3 seconds</p>
     </body>
     </html>
@@ -74,4 +73,3 @@ if __name__ == '__main__':
                 app.run(host='0.0.0.0', port=5002, debug=False)
         else:
             raise
-```
