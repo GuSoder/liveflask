@@ -3,26 +3,28 @@ import sys
 import time
 import subprocess
 import threading
-from flask import Flask
+from flask import Flask, render_template_string
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return '''
+    with open('templates/content.html', 'r') as f:
+        content = f.read()
+    
+    return f'''
     <!DOCTYPE html>
     <html>
     <head>
         <title>Live Flask App</title>
         <script>
-            setTimeout(function() {
+            setTimeout(function() {{
                 location.reload();
-            }, 3000);
+            }}, 3000);
         </script>
     </head>
     <body>
-        <h1>Qwerqwerqwerqwerqwerwqer!!!!</h1>
-        <p>This page auto-refreshes every 3 seconds</p>
+        {content}
     </body>
     </html>
     '''
