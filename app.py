@@ -21,7 +21,7 @@ def hello():
         </script>
     </head>
     <body>
-        <h1>Lololo</h1>
+        <h1>Yooooooo!!!!</h1>
         <p>This page auto-refreshes every 3 seconds</p>
     </body>
     </html>
