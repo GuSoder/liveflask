@@ -27,7 +27,7 @@ def check_git_status():
             
             if pull_result.returncode == 0:
                 print("Changes pulled successfully. Restarting app...")
-                os.execv(sys.executable, ['python'] + sys.argv)
+                os._exit(0)
             else:
                 print(f"Git pull failed: {pull_result.stderr}")
         else:
