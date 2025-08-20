@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return "Yo"
+    return "Yoyoyoyoyoyo!!!!"
 
 def check_git_status():
     try:
