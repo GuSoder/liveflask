@@ -13,10 +13,14 @@ def hello():
 
 def check_git_status():
     try:
-        result = subprocess.run(['git', 'fetch'], capture_output=True, text=True, cwd=os.path.dirname(__file__))
-        result = subprocess.run(['git', 'status', '-uno'], capture_output=True, text=True, cwd=os.path.dirname(__file__))
+        print("Checking git status...")
+        fetch_result = subprocess.run(['git', 'fetch'], capture_output=True, text=True, cwd=os.path.dirname(__file__))
+        print(f"Git fetch result: {fetch_result.returncode}, stderr: {fetch_result.stderr}")
         
-        if 'Your branch is behind' in result.stdout:
+        status_result = subprocess.run(['git', 'status', '-uno'], capture_output=True, text=True, cwd=os.path.dirname(__file__))
+        print(f"Git status output: {status_result.stdout}")
+        
+        if 'Your branch is behind' in status_result.stdout:
             print("Repository is behind origin, pulling changes...")
             pull_result = subprocess.run(['git', 'pull'], capture_output=True, text=True, cwd=os.path.dirname(__file__))
             print(f"Git pull result: {pull_result.stdout}")
@@ -26,6 +30,8 @@ def check_git_status():
                 os.execv(sys.executable, ['python'] + sys.argv)
             else:
                 print(f"Git pull failed: {pull_result.stderr}")
+        else:
+            print("Repository is up to date")
                 
     except Exception as e:
         print(f"Git check failed: {e}")
