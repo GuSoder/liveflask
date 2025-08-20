@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return "Hello World! Auto-reloading Flask app."
+    return "Yo"
 
 def check_git_status():
     try:
