@@ -9,7 +9,23 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return "Lololo"
+    return '''
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Live Flask App</title>
+        <script>
+            setTimeout(function() {
+                location.reload();
+            }, 3000);
+        </script>
+    </head>
+    <body>
+        <h1>Lololo</h1>
+        <p>This page auto-refreshes every 3 seconds</p>
+    </body>
+    </html>
+    '''
 
 def check_git_status():
     try:
